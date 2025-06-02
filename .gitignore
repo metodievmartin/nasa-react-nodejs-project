@@ -1,0 +1,46 @@
+# Node modules (both client and server)
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Build outputs
+dist/
+build/
+client/build/
+client/dist/
+server/build/
+server/dist/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
+**/.env
+
+# Editor configs
+.vscode/
+.idea/
+
+# Coverage reports
+coverage/
+
+# Cache
+.cache/
+.next/
+.eslintcache
+
+# Local database or runtime files
+*.sqlite
+*.pid
+
+# Prettier or lint-staged temp files
+*.tsbuildinfo
