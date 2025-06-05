@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { httpGetAllLaunches, httpAddNewLaunch } = require('./launches.controller');
+const { httpGetAllLaunches, httpAddNewLaunch, httpAbortLaunch } = require('./launches.controller');
 
 const launchesRouter = express.Router();
 
@@ -10,5 +10,9 @@ launchesRouter.get('/', httpGetAllLaunches);
 // POST /api/v1/launches
 // Body: { mission, rocket, launchDate, target }
 launchesRouter.post('/', httpAddNewLaunch);
+
+// DELETE /api/v1/launches/:launchId
+// Body: { launchId }
+launchesRouter.delete('/:launchId', httpAbortLaunch);
 
 module.exports = launchesRouter;
