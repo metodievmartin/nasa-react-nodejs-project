@@ -12,6 +12,10 @@
  * // Returns false for non-Date objects
  * isValidDate({}) // false
  */
-export function isValidDate(d) {
+function isValidDate(d) {
   return d instanceof Date && !isNaN(d.valueOf());
 }
+
+module.exports = {
+  isValidDate,
+};

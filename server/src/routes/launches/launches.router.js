@@ -12,7 +12,6 @@ launchesRouter.get('/', httpGetAllLaunches);
 launchesRouter.post('/', httpAddNewLaunch);
 
 // DELETE /api/v1/launches/:launchId
-// Body: { launchId }
 launchesRouter.delete('/:launchId', httpAbortLaunch);
 
 module.exports = launchesRouter;
