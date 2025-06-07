@@ -1,0 +1,17 @@
+# Creates a MongoDB database container to be used during development
+
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb_dev
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=dev_root
+      - MONGO_INITDB_ROOT_PASSWORD=dev_password
+      - MONGO_INITDB_DATABASE=nasa
+    volumes:
+      - data:/data/db
+
+volumes:
+  data:

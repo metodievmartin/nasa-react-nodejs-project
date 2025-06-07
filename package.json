@@ -12,7 +12,10 @@
     "build": "npm run build --prefix client && npm start --prefix server",
     "test": "npm test --prefix server && npm test --prefix client",
     "deploy": "npm run build --prefix client && npm start --prefix server",
-    "deploy:cluster": "npm run build --prefix client && npm run cluster --prefix server"
+    "deploy:cluster": "npm run build --prefix client && npm run cluster --prefix server",
+    "mongo:up": "docker compose -f docker/docker-compose.mongodb.dev.yml -p nasa-project up -d",
+    "mongo:down": "docker compose -f docker/docker-compose.mongodb.dev.yml -p nasa-project down",
+    "mongo:logs": "docker compose -f docker/docker-compose.mongodb.dev.yml -p nasa-project logs -f"
   },
   "keywords": [],
   "author": "",
