@@ -1,5 +1,6 @@
-const env = process.env.NODE_ENV || 'development';
+require('dotenv').config();
 
+const env = process.env.NODE_ENV || 'development';
 let config;
 
 switch (env) {

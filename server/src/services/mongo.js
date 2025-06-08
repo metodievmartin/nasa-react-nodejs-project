@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-require('dotenv').config();
+const { dbUri, environment } = require('../config');
 
-const MONGO_URI = process.env.MONGO_URI;
-
-if (!MONGO_URI) {
-  throw new Error('Missing config: MONGO_URI not provided in .env');
+if (!dbUri) {
+  throw new Error(
+    `Missing config: "dbUri" not provided for "${environment}" environment. Check the config file.`
+  );
 }
 
 mongoose.connection.once('open', () => {
@@ -17,9 +17,9 @@ mongoose.connection.on('error', (err) => {
 });
 
 async function mongoConnect() {
-  await mongoose.connect(MONGO_URI);
+  await mongoose.connect(dbUri);
 }
- 
+
 async function mongoDisconnect() {
   await mongoose.disconnect();
 }
