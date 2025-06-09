@@ -98,8 +98,12 @@ async function getLatestFlightNumber() {
   return latestLaunch.flightNumber;
 }
 
-async function getAllLaunches() {
-  return launches.find({}, { _id: 0, __v: 0 });
+async function getAllLaunches(skip, limit) {
+  return launches
+    .find({}, { _id: 0, __v: 0 })
+    .sort({ flightNumber: 1 }) // 1 for ASC and -1 for DESC
+    .skip(skip)
+    .limit(limit);
 }
 
 async function abortLaunchById(launchId) {
