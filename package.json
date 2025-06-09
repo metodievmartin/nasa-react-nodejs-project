@@ -15,7 +15,8 @@
     "deploy:cluster": "npm run build --prefix client && npm run cluster --prefix server",
     "mongo:up": "docker compose -f docker/docker-compose.mongodb.dev.yml -p nasa-project up -d",
     "mongo:down": "docker compose -f docker/docker-compose.mongodb.dev.yml -p nasa-project down",
-    "mongo:logs": "docker compose -f docker/docker-compose.mongodb.dev.yml -p nasa-project logs -f"
+    "mongo:logs": "docker compose -f docker/docker-compose.mongodb.dev.yml -p nasa-project logs -f",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
