@@ -8,9 +8,8 @@ switch (env) {
     config = require('./development');
     break;
   case 'production':
-    throw new Error('Production config not yet implemented');
-  // config = require('./production');
-  // break;
+    config = require('./production');
+    break;
   case 'test':
     config = require('./testing');
     break;
