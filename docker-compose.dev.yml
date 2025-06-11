@@ -1,0 +1,26 @@
+# Docker Compose file for local development
+# Bundles and starts the app with a Mongo DB instance - http://localhost:8000
+
+services:
+  nasa-app:
+    # Build the app image from the Dockerfile in root
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - API_URL=http://localhost:8000/api/v1 # Set API endpoint for local dev
+    image: nasa-project-dev
+    env_file:
+      - ./server/.env.development # Use development environment variables
+    ports:
+      - "8000:8000" # Map host:container port for backend/API
+    depends_on:
+      - mongo # Ensure MongoDB starts before app
+  mongo:
+    image: mongo # Use the latest official MongoDB image
+    ports:
+      - "27017:27017" # Expose MongoDB port
+    volumes:
+      - data:/data/db # Persist MongoDB data between restarts
+volumes:
+  data: # Named volume for MongoDB data

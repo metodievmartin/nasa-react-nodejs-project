@@ -25,6 +25,8 @@ Thumbs.db
 # Env files
 .env
 **/.env
+.env.production
+**/.env.production
 
 # Editor configs
 .vscode/

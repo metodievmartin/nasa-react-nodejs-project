@@ -1,0 +1,17 @@
+# Docker Compose file for production deployment
+# Runs the NASA app service using a pre-built image and environment variables
+
+services:
+  nasa-app:
+    platform: linux/amd64 # Ensure compatibility with most cloud providers
+    build:
+      context: . # Build from the current directory
+      dockerfile: Dockerfile # Use the Dockerfile in the current directory
+      args:
+        - API_URL=/api/v1 # Use relative API URL for production
+    image: wigansmartin/nasa-project # Tag the image according to Docker Hub standard
+    env_file:
+      - ./server/.env.production # Use production environment variables
+    ports:
+      - "8000:8000" # Expose app on port 8000
+    restart: always # Always restart the container if it crashes
